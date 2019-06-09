@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/test.css">
+
+    <title>Culinary Coin</title>
+  </head>
+  <body>
+
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" style="border-bottom: solid 1px lightgrey;">
+      <a class="navbar-brand" href="#">Culinary Coin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">About<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <span class="nav-item">
+          <a class="nav-link" href="apply.html">Apply</a>
+        </span>
+        <span class="navbar-item">
+          <a class="nav-link" href="redeem.html">Redeem</a>
+        </span>
+      </div>
+    </nav>
+    <!-- navigation bar -->
+
+    <!-- contact form -->
+    <div class="col-5 mx-auto" style="margin-top: 48px; margin-bottom: 48px;">
+      <h1 class="display-4">Apply Now</h1>
+      <form action="https://formspree.io/culinarycoin@gmail.com" method="POST">
+        <div class="form-group">
+          <label>Name</label>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" id="firstName" name="First Name">
+              <small class="form-text text-muted">First name</small>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" id="lastName" name="Last Name">
+              <small class="form-text text-muted">Last name</small>
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="Email Address">
+        </div>
+        <div class="form-group">
+          <label>Phone number</label>
+          <input type="tel" class="form-control" id="number" aria-describedby="numberHelp" name="Phone Number">
+        </div>
+        <div class="form-group">
+          <label>Dietary Restrictions</label>
+          <input type="text" class="form-control" id="diet" aria-describedby="dietHelp" name="Dietary Restrictions">
+        </div>
+        <div class="form-group">
+          <label>Experiences you are interested in:</label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="goIceCreamCheck" name="Go! Ice Cream Checkbox">
+            <label class="form-check-label" for="goIceCreamCheck">Go! Ice Cream</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="gingerDeliCheck" name="Ginger Deli Checkbox">
+            <label class="form-check-label" for="gingerDeliCheck">Ginger Deli</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="dessousCheck" name="Dessous Checkbox">
+            <label class="form-check-label" for="dessousCheck">Dessous</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <input type="text" class="form-control" id="hearUs" aria-describedby="hearUsHelp" name="How did you hear about us?">
+        </div>
+        <div class="form-group">
+          <label>What are you interested in learning about or experiencing?</label>
+          <textarea class="form-control" id="interests" rows="3" name="What are you interested in learning about or experiencing?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <!-- contact form -->
+
+    <!-- footer -->
+    <div class="jumbotron jumbotron-fluid bg-light text-dark text-center" style="bottom: 0; margin-bottom: 0px; border-top: solid 1px lightgrey;">
+      <div class="container">
+        <p class="lead">© 2019 Culinary Coin. All Rights Reserved.</p>
+      </div>
+    </div>
+    <!-- footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

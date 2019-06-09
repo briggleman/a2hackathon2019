@@ -1,0 +1,35 @@
+# inherit from our production image
+FROM culinary-coin
+
+RUN apt-get update && \
+    apt-get install -y openssh-server sudo
+
+# vagrant/docker specific provisioning
+# "vagrant" user
+RUN useradd -s /bin/bash vagrant && \
+    echo vagrant:vagrant | chpasswd -m && \
+    install -m 755 -o vagrant -g vagrant -d /home/vagrant && \
+    install -m 700 -o vagrant -g vagrant -d /home/vagrant/.ssh && \
+    echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key' > /home/vagrant/.ssh/authorized_keys \
+    chmod 600 /home/vagrant/.ssh/authorized_keys && \
+    chown vagrant:vagrant /home/vagrant/.ssh/authorized_keys && \
+    # root password: "vagrant"
+    echo root:vagrant | chpasswd -m && \
+    # password-less sudo
+    echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant && \
+    # ssh tweaks
+    echo 'UseDNS no' >> /etc/ssh/sshd_config && \
+    # other docker image fixes
+    mkdir -p /var/run/sshd && \
+    rm /usr/sbin/policy-rc.d && \
+    # "vagrant-cachier" friendly
+    rm /etc/apt/apt.conf.d/docker-clean && \
+    # cleanup
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+EXPOSE 22 8080 8545
+
+ENV WORKERS 3
+
+CMD ["/usr/sbin/sshd", "-D"]

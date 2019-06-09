@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.synced_folder ".", "/app"
+
+  # dbox configuration area
+  config.vm.provider "docker" do |d|
+    d.build_dir = "."
+    d.dockerfile = "dev.Dockerfile"
+    d.has_ssh = true
+    # to expose a port use: d.ports = ["external","internal"]
+    # or to assign a random external port: d.ports = ["internal"]
+    d.ports = ["8080:8080", "8545:8545"]
+  end
+
+  # dbox provision area
+  # this section is used to fine-tune container provisioning for development
+  # any required packages or startup actions can be added here.  this section should
+  # build upon the prod.dockerfile and add/start any services required for development.
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https software-properties-common gnupg gnupg-agent gnupg2
+  SHELL
+
+  # uncomment to force a reload of the box after it is provisioned
+  #config.vm.provision :reload
+end

@@ -1,0 +1,6 @@
+{
+    {% block data %}{% endblock %}
+    "message": "{{ message|default("success") }}",
+    "created": "{{ timestamp }}",
+    "status": {{ status|int }}
+}
